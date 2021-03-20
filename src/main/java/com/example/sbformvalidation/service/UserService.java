@@ -31,11 +31,11 @@ public class UserService {
     }
     
   
-	public List<User> sortUserbydob(String dob) {
+	public List<User> sortUserbydob() {
 		return userRepository.findByOrderByDobAsc();
 	}
 
-	public List<User> sortUserbyjoiningdate(String joiningdate) {
+	public List<User> sortUserbyjoiningdate() {
 		return userRepository.findAllByOrderByJoiningdateAsc();
 	}
 	

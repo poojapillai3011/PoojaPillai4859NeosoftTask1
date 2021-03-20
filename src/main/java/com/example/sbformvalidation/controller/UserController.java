@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sbformvalidation.entity.User;
 import com.example.sbformvalidation.service.UserService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -65,15 +67,15 @@ public class UserController {
   	}
     
     
-	@GetMapping("/sortdob/{dob}")
-	public List<User> sortUserbydob(@PathVariable String dob) {
-		return userService.sortUserbydob(dob);
+	@GetMapping("/sortdob")
+	public List<User> sortUserbydob() {
+		return userService.sortUserbydob();
 	}
 
 	
-	@GetMapping("/sortjoiningdate/{joiningdate}")
-	public List<User> sortUserbyjoiningdate(@PathVariable String joiningdate) {
-		return userService.sortUserbyjoiningdate(joiningdate);
+	@GetMapping("/sortjoiningdate")
+	public List<User> sortUserbyjoiningdate() {
+		return userService.sortUserbyjoiningdate();
 	}
     
     @RequestMapping(value = "/registerNewUser", method = RequestMethod.POST)
